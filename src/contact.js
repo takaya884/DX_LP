@@ -45,7 +45,6 @@ export async function handleContact(request, env) {
     ['メール', email],
     ['電話番号', body.tel],
     ['従業員数', body.size],
-    ['きっかけ', body.source],
   ]
     .filter(([, v]) => v && String(v).trim())
     .map(([k, v]) => ({ type: 'mrkdwn', text: `*${k}*\n${String(v).trim()}` }));
