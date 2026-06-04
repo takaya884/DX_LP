@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1ヶ月で作る、完全フルオーダーの業務システム開発</title>
+  <meta name="description" content="中小企業向けの完全フルオーダー業務システム開発。動くプロトタイプを数日で、本体を約1ヶ月でお見せします。完成品を見てから契約を判断、初回相談0円・無理な勧誘なし。" />
+  <meta property="og:title" content="つくってから、選べばいい。｜完全フルオーダーの業務システム開発" />
+  <meta property="og:description" content="完成品を見てから、契約するか決める。発注のリスクはこちらが引き受けます。" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="shell header__inner">
+      <a href="#hero" class="logo">
+        <span class="logo__dot"></span>
+        <span class="logo__name">業務システム<em>開発</em></span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#problem">課題</a>
+        <a href="#service">サービス</a>
+        <a href="#flow">進め方</a>
+        <a href="#works">実績</a>
+        <a href="#faq">Q&amp;A</a>
+        <a href="#contact" class="nav__cta">無料相談 <span>→</span></a>
+      </nav>
+      <button class="burger" id="navToggle" aria-label="メニュー"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="hero">
+    <canvas class="hero__canvas" id="bgCanvas" aria-hidden="true"></canvas>
+    <div class="shell hero__inner">
+      <p class="hero__eyebrow"><span class="line"></span>CUSTOM SYSTEM &amp; AI SUPPORT</p>
+      <h1 class="hero__title">
+        つくってから、<br />
+        <span class="stroke">選べばいい。</span>
+      </h1>
+      <p class="hero__lead">
+        完成品を見てから、契約するか決める。——御社の業務にぴったり合うシステムを、
+        まず「動くかたち」でお見せします。プロトタイプは数日、本体は約1ヶ月。納得いただけなければ、費用はかかりません。
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--solid">無料で相談する</a>
+        <a href="#service" class="btn btn--line">サービスを見る</a>
+      </div>
+      <ul class="hero__meta">
+        <li><b>初回面談0円</b>から</li>
+        <li><b>プロトタイプ</b>数日で提示</li>
+        <li><b>MVP</b>を1ヶ月以内に納品</li>
+      </ul>
+    </div>
+    <div class="hero__scroll"><span></span>SCROLL</div>
+  </section>
+
+  <!-- ===== Marquee ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>完全フルオーダー</span><i>✦</i><span>業務システム</span><i>✦</i><span>生成AI活用</span><i>✦</i><span>プロトタイプ</span><i>✦</i>
+      <span>MVP開発</span><i>✦</i><span>業務効率化</span><i>✦</i><span>AI導入支援</span><i>✦</i><span>見てから決める</span><i>✦</i><span>ノーリスク</span><i>✦</i>
+      <span>完全フルオーダー</span><i>✦</i><span>業務システム</span><i>✦</i><span>生成AI活用</span><i>✦</i><span>プロトタイプ</span><i>✦</i>
+      <span>MVP開発</span><i>✦</i><span>業務効率化</span><i>✦</i><span>AI導入支援</span><i>✦</i><span>見てから決める</span><i>✦</i><span>ノーリスク</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ===== Problem ===== -->
+  <section class="block problem" id="problem">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx">01 — 課題</span>
+        <h2 class="block__title">そのシステム化、<br class="sp" />止まっていませんか。</h2>
+      </header>
+      <ul class="prob">
+        <li>
+          <span class="prob__no">/01</span>
+          <h3>SaaSが業務に合わない</h3>
+          <p>既製のSaaSを試しても自社の業務フローに合わず、結局Excel運用に逆戻りしてしまう。</p>
+        </li>
+        <li>
+          <span class="prob__no">/02</span>
+          <h3>フルオーダーは高すぎる</h3>
+          <p>フルスクラッチ開発は500万円以上・長い納期が当たり前。中小企業には手が出しにくい。</p>
+        </li>
+        <li>
+          <span class="prob__no">/03</span>
+          <h3>仕様齟齬と追加費用</h3>
+          <p>発注したのにイメージと違う。「それは別料金です」と追加費用が積み上がっていく。</p>
+        </li>
+        <li>
+          <span class="prob__no">/04</span>
+          <h3>だから、先延ばし</h3>
+          <p>リスクが大きく、結局「いつかやろう」でシステム化が止まったままになっている。</p>
+        </li>
+      </ul>
+      <p class="prob__bridge">「先に作って、見てから決める」なら、その発注リスクは消える。</p>
+    </div>
+  </section>
+
+  <!-- ===== Service ===== -->
+  <section class="block service" id="service">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx idx--light">02 — サービス</span>
+        <h2 class="block__title block__title--light">ご提供する<br class="sp" />4つのこと。</h2>
+      </header>
+      <div class="svc">
+        <article class="svc__row">
+          <span class="svc__no">01</span>
+          <div class="svc__body">
+            <h3>完全フルオーダー開発</h3>
+            <p>既製品に業務を合わせるのではなく、御社の業務にシステムを合わせる。現場の使い方そのままに設計し、本当に使えるものを作ります。</p>
+            <ul class="tags"><li>業務ヒアリング</li><li>フルオーダー設計</li><li>現場目線</li></ul>
+          </div>
+        </article>
+        <article class="svc__row svc__row--accent">
+          <span class="svc__no">02</span>
+          <div class="svc__body">
+            <h3>動くプロトタイプを数日で <em>人気</em></h3>
+            <p>資料や口頭説明ではなく、実際に触れるプロトタイプを数日でご提示。「これじゃない」を早い段階でなくし、手戻りを防ぎます。</p>
+            <ul class="tags"><li>高速プロトタイピング</li><li>実機で確認</li><li>イメージ共有</li></ul>
+          </div>
+        </article>
+        <article class="svc__row">
+          <span class="svc__no">03</span>
+          <div class="svc__body">
+            <h3>1ヶ月でMVP納品</h3>
+            <p>業務で使える最小限のシステム（MVP）を1ヶ月以内に納品。気に入っていただけた場合のみ契約・お支払いです。</p>
+            <ul class="tags"><li>MVP開発</li><li>1ヶ月納品</li><li>契約は納得後</li></ul>
+          </div>
+        </article>
+        <article class="svc__row svc__row--accent">
+          <span class="svc__no">04</span>
+          <div class="svc__body">
+            <h3>AI活用・生成AI導入サポート <em>NEW</em></h3>
+            <p>ChatGPTなどの生成AIを、御社の業務に合わせて活用。資料作成・問い合わせ対応・データ整理の自動化から、開発するシステムへのAI組み込みまで支援します。「何に使えるか分からない」段階からご相談ください。</p>
+            <ul class="tags"><li>生成AI活用</li><li>業務自動化</li><li>AIをシステムに組込</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reason ===== -->
+  <section class="block reason">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx">03 — 選ばれる理由</span>
+        <h2 class="block__title">リスクは、<br class="sp" />こちらが負います。</h2>
+      </header>
+      <div class="reason__grid">
+        <div class="reason__cell">
+          <span class="reason__no">01</span>
+          <h3>完成品を見て決める</h3>
+          <p>仕様書や見積もりではなく、実際に動くものを先にお見せします。納得してからの契約だから、発注リスクはゼロ。</p>
+        </div>
+        <div class="reason__cell">
+          <span class="reason__no">02</span>
+          <h3>合わなければ0円</h3>
+          <p>ご期待に沿わなければ契約は不要、費用はいただきません。無理な勧誘や追い込み営業もしません。</p>
+        </div>
+        <div class="reason__cell">
+          <span class="reason__no">03</span>
+          <h3>無理のない料金で</h3>
+          <p>高額な固定見積もりは出しません。得られる価値に見合った範囲で。小さな事業者でも始められます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Flow ===== -->
+  <section class="block flow" id="flow">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx">04 — 進め方</span>
+        <h2 class="block__title">相談から納品まで、<br class="sp" />最短1ヶ月。</h2>
+      </header>
+      <ol class="flow__list">
+        <li><span class="flow__step">STEP 01</span><h3>無料Web面談</h3><p>オンラインで業務課題やご要望をヒアリング。費用は0円。営業色の強い提案はしません。</p></li>
+        <li><span class="flow__step">STEP 02</span><h3>プロトタイプ提示</h3><p>数日で動くプロトタイプを作成しご提示。実際に触って、イメージとのズレを確認いただきます。</p></li>
+        <li><span class="flow__step">STEP 03</span><h3>MVP納品</h3><p>1ヶ月以内に業務で使えるMVPを納品。ここまで費用はかかりません。</p></li>
+        <li><span class="flow__step">STEP 04</span><h3>契約判断</h3><p>気に入っていただけたら契約。お気持ちに応じた料金で本運用へ進みます。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Works (制作実績) ===== -->
+  <section class="block works" id="works">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx">05 — 実績</span>
+        <h2 class="block__title">こういうもの、<br class="sp" />作ってきました。</h2>
+      </header>
+      <div class="works__grid">
+        <!-- ↓ 各カードの中身は後ほど差し替え。画像は thumb の背景に設定するか <img> を入れてください -->
+        <article class="work">
+          <div class="work__thumb"><span>IMAGE</span></div>
+          <div class="work__body">
+            <span class="work__cat">業務システム</span>
+            <h3 class="work__title">（制作実績タイトル）</h3>
+            <p class="work__txt">どんな課題を、どう解決したかをここに記載します。後ほど内容を差し替えてください。</p>
+            <ul class="tags"><li>タグ1</li><li>タグ2</li></ul>
+          </div>
+        </article>
+        <article class="work">
+          <div class="work__thumb"><span>IMAGE</span></div>
+          <div class="work__body">
+            <span class="work__cat">AI活用</span>
+            <h3 class="work__title">（制作実績タイトル）</h3>
+            <p class="work__txt">どんな課題を、どう解決したかをここに記載します。後ほど内容を差し替えてください。</p>
+            <ul class="tags"><li>タグ1</li><li>タグ2</li></ul>
+          </div>
+        </article>
+        <article class="work">
+          <div class="work__thumb"><span>IMAGE</span></div>
+          <div class="work__body">
+            <span class="work__cat">業務自動化</span>
+            <h3 class="work__title">（制作実績タイトル）</h3>
+            <p class="work__txt">どんな課題を、どう解決したかをここに記載します。後ほど内容を差し替えてください。</p>
+            <ul class="tags"><li>タグ1</li><li>タグ2</li></ul>
+          </div>
+        </article>
+      </div>
+      <p class="works__note">※ 実績は順次追加していきます。詳しくはお気軽にお問い合わせください。</p>
+    </div>
+  </section>
+
+  <!-- ===== Case ===== -->
+  <section class="block case" id="case">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx idx--light">06 — 導入事例</span>
+        <h2 class="block__title block__title--light">数字で見る、<br class="sp" />変化のかたち。</h2>
+      </header>
+      <div class="case__grid">
+        <article class="case__card">
+          <div class="case__num">1<small>ヶ月</small></div>
+          <p class="case__label">納品までの期間</p>
+          <p class="case__txt">製造業・30名｜構想から実際に業務で使えるシステムまで、最短1ヶ月で形に。すぐに現場で運用開始。</p>
+        </article>
+        <article class="case__card">
+          <div class="case__num">0<small>円</small></div>
+          <p class="case__label">契約までの費用</p>
+          <p class="case__txt">小売業・12名｜初回面談からMVP納品まで費用0円。完成物を見て納得してから契約できた。</p>
+        </article>
+        <article class="case__card">
+          <div class="case__num">‑80<small>%</small></div>
+          <p class="case__label">手作業の工数</p>
+          <p class="case__txt">士業・8名｜Excelの手作業転記を自動化。毎日の入力・確認業務が大幅に減り、転記ミスも解消。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Voice ===== -->
+  <section class="block voice">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx">07 — お客様の声</span>
+      </header>
+      <div class="voice__grid">
+        <blockquote>
+          <p>「SaaSをいくつ試してもしっくり来ず、結局Excelに戻っていました。実際に動くものを見せてもらえたので、安心して任せられました。」</p>
+          <cite>製造業 A社 / 業務改善担当</cite>
+        </blockquote>
+        <blockquote>
+          <p>「“作ってから契約”という形が新鮮でした。リスクなく試せたので、社内の稟議も通しやすかったです。」</p>
+          <cite>サービス業 B社 / 代表取締役</cite>
+        </blockquote>
+        <blockquote>
+          <p>「数日でプロトタイプが出てきて驚きました。イメージのズレが早い段階でなくなり、手戻りがありませんでした。」</p>
+          <cite>士業 C社 / 所長</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="block faq" id="faq">
+    <div class="shell shell--narrow">
+      <header class="block__head">
+        <span class="idx">08 — Q&amp;A</span>
+        <h2 class="block__title">よくある質問</h2>
+      </header>
+      <div class="faq__list">
+        <details><summary>本当に契約前は費用がかからないの？</summary><p>はい。初回面談からMVP納品まで費用は0円です。実際に完成物を確認し、気に入っていただけた場合のみご契約・お支払いとなります。</p></details>
+        <details><summary>どんなシステムでも作れますか？</summary><p>業務効率化を目的とした業務システム開発を得意としています。一方で、大規模なサービス開発や、既存SaaSで十分に対応できる業種（飲食業など）は対象外とさせていただく場合があります。</p></details>
+        <details><summary>AIの活用についても相談できますか？</summary><p>はい。生成AI（ChatGPT等）の業務活用や、開発するシステムへのAI組み込みもサポートしています。「自社の業務でAIに何ができるのか知りたい」といった段階からのご相談も歓迎です。</p></details>
+        <details><summary>料金はどのくらいになりますか？</summary><p>高額な固定見積もりではなく、価値に納得いただいた分でとお願いしています。まずは無料でプロトタイプをご覧いただき、その上でご判断ください。</p></details>
+        <details><summary>なぜ無料で作ってもらえるのですか？</summary><p>言葉や資料だけでは価値が伝わりにくいため、先に動くものをお見せする方針だからです。気に入っていただけることに自信があります。</p></details>
+        <details><summary>遠方でも依頼できますか？</summary><p>はい。面談はオンライン中心で全国対応しています。必要に応じて訪問でのご相談もご相談ください。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact (CTA band) ===== -->
+  <section class="block contact" id="contact">
+    <div class="shell contact__inner">
+      <span class="idx idx--light">09 — お問い合わせ</span>
+      <h2 class="contact__title">まずは、見てから決めてください。</h2>
+      <p class="contact__desc">「自社の業務に何ができるか知りたい」「AIで何ができるか相談したい」だけでも歓迎です。<br />初回相談・プロトタイプ作成は無料。無理な勧誘は一切ありません。</p>
+
+      <form class="cform" id="contactForm" novalidate>
+        <div class="cform__grid">
+          <label class="field">
+            <span class="field__label">会社名・屋号</span>
+            <input type="text" name="company" autocomplete="organization" placeholder="例）株式会社サンプル" />
+          </label>
+          <label class="field">
+            <span class="field__label">お名前 <em>必須</em></span>
+            <input type="text" name="name" required autocomplete="name" placeholder="例）山田 太郎" />
+          </label>
+          <label class="field">
+            <span class="field__label">メールアドレス <em>必須</em></span>
+            <input type="email" name="email" required autocomplete="email" placeholder="例）you@example.com" />
+          </label>
+          <label class="field">
+            <span class="field__label">電話番号（任意）</span>
+            <input type="tel" name="tel" autocomplete="tel" placeholder="例）090-1234-5678" />
+          </label>
+          <label class="field">
+            <span class="field__label">従業員数（任意）</span>
+            <select name="size">
+              <option value="">選択してください</option>
+              <option value="1名（個人）">1名（個人）</option>
+              <option value="2〜10名">2〜10名</option>
+              <option value="11〜50名">11〜50名</option>
+              <option value="51〜100名">51〜100名</option>
+              <option value="101名以上">101名以上</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">どこで知りましたか？（任意）</span>
+            <input type="text" name="source" placeholder="例）検索 / 紹介 / SNS など" />
+          </label>
+          <label class="field field--full">
+            <span class="field__label">ご相談内容 <em>必須</em></span>
+            <textarea name="message" required rows="5" placeholder="現状の課題や、やってみたいこと（業務システム・AI活用など）をお書きください。"></textarea>
+          </label>
+        </div>
+
+        <!-- honeypot (bot対策・人には見えない) -->
+        <div class="cform__hp" aria-hidden="true">
+          <label>ここは入力しないでください<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div class="cform__foot">
+          <button type="submit" class="btn btn--solid cform__submit">この内容で相談する →</button>
+          <p class="cform__status" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <ul class="contact__merit">
+        <li>初回相談・プロトタイプは無料</li>
+        <li>納得した場合のみ契約</li>
+        <li>無理な勧誘なし</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <a href="#hero" class="logo logo--lg"><span class="logo__dot"></span><span class="logo__name">業務システム<em>開発</em></span></a>
+      <p class="footer__tag">御社の業務に、<br />ぴったり合うシステムを。</p>
+      <nav class="footer__nav">
+        <a href="#service">サービス</a><a href="#flow">進め方</a>
+        <a href="#works">実績</a><a href="#faq">Q&amp;A</a><a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="footer__copy">© 2026 業務システム開発</p>
+  </footer>
+
+  <a href="#contact" class="float-cta">無料相談 →</a>
+
+  <!-- three.js (progressive enhancement) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
