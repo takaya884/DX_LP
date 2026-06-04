@@ -16,3 +16,8 @@ node_modules/
 
 # Claude (任意・公開したくなければ)
 .claude/
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
