@@ -1,0 +1,14 @@
+{
+  // Cloudflare Worker（静的アセット + フォームAPI）設定
+  // 既存の Git 連携プロジェクト名に合わせる
+  "name": "dx-lp",
+  "main": "src/index.js",
+  "compatibility_date": "2026-06-04",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    // LP本体の静的ファイル置き場
+    "directory": "./public",
+    // Worker から静的アセットを返すためのバインディング（src/index.js の env.ASSETS）
+    "binding": "ASSETS"
+  }
+}

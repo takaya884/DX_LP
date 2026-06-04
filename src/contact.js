@@ -1,10 +1,8 @@
-// Cloudflare Pages Function — POST /api/contact
-// フォーム送信を受け取り、Slack Incoming Webhook へ通知する。
+// お問い合わせフォーム受信 → Slack Incoming Webhook へ通知
 //
-// 必要な環境変数（Cloudflare ダッシュボード → Settings → Environment variables）:
+// 必要な環境変数（Cloudflare ダッシュボード → 設定 → 変数とシークレット）:
 //   SLACK_WEBHOOK_URL = https://hooks.slack.com/services/XXX/YYY/ZZZ
-//
-// ※ Webhook URL はコードに直書きせず、必ず環境変数で渡すこと。
+// ※ Webhook URL はコードに直書きせず、必ず環境変数（Secret）で渡すこと。
 
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
@@ -12,7 +10,7 @@ const json = (data, status = 200) =>
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
   });
 
-export async function onRequestPost({ request, env }) {
+export async function handleContact(request, env) {
   // 1) JSON を読む
   let body;
   try {
@@ -57,10 +55,7 @@ export async function onRequestPost({ request, env }) {
     blocks: [
       { type: 'header', text: { type: 'plain_text', text: '📩 新しいお問い合わせ', emoji: true } },
       ...(fields.length ? [{ type: 'section', fields }] : []),
-      {
-        type: 'section',
-        text: { type: 'mrkdwn', text: `*ご相談内容*\n${message}` },
-      },
+      { type: 'section', text: { type: 'mrkdwn', text: `*ご相談内容*\n${message}` } },
     ],
   };
 
@@ -71,9 +66,7 @@ export async function onRequestPost({ request, env }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(slackPayload),
     });
-    if (!res.ok) {
-      return json({ ok: false, error: 'slack error' }, 502);
-    }
+    if (!res.ok) return json({ ok: false, error: 'slack error' }, 502);
   } catch {
     return json({ ok: false, error: 'network error' }, 502);
   }
