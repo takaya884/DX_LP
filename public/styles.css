@@ -60,6 +60,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .header__inner { display: flex; align-items: center; justify-content: space-between; height: 74px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo__img { height: 44px; width: auto; display: block; }
 .logo__dot {
   width: 12px; height: 12px; border-radius: 50%;
   background: var(--coral);
@@ -311,8 +312,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ===== Footer ===== */
 .footer { background: var(--ink); color: var(--cream); padding: 70px 0 30px; }
 .footer__inner { display: flex; flex-wrap: wrap; gap: 30px 60px; align-items: flex-start; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); }
-.logo--lg .logo__name { font-size: 1.5rem; color: #fff; }
-.footer__tag { color: var(--muted-dk); font-size: 0.92rem; flex: 1; min-width: 220px; }
+.footer__brand { display: flex; flex-direction: column; gap: 18px; min-width: 200px; }
+.footer__tag { color: var(--muted-dk); font-size: 0.92rem; max-width: 240px; }
+.footer__info { display: flex; flex-direction: column; gap: 12px; min-width: 240px; font-size: 0.86rem; }
+.footer__info div { display: flex; gap: 16px; }
+.footer__info dt { flex-shrink: 0; min-width: 48px; color: var(--muted-dk); font-weight: 500; }
+.footer__info dd { margin: 0; color: rgba(255, 255, 255, 0.82); line-height: 1.65; }
 .footer__nav { display: flex; flex-wrap: wrap; gap: 14px 28px; }
 .footer__nav a { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); transition: color 0.2s; }
 .footer__nav a:hover { color: var(--coral); }
