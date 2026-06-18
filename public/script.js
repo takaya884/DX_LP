@@ -244,3 +244,52 @@ if ('IntersectionObserver' in window) {
     }, { threshold: 0 }).observe(canvas);
   }
 })();
+
+// ---------- Hero reveal slider (DRAFT → SHIP) ----------
+(() => {
+  const drev = document.getElementById('drev');
+  if (!drev) return;
+  const range = document.getElementById('drevRange');
+  const divider = document.getElementById('drevDivider');
+  const setPos = (p) => {
+    p = Math.max(2, Math.min(98, p));
+    drev.style.setProperty('--pos', p + '%');
+    range.value = p;
+  };
+  range.addEventListener('input', () => setPos(parseFloat(range.value)));
+
+  const fromClient = (x) => {
+    const r = drev.getBoundingClientRect();
+    setPos(((x - r.left) / r.width) * 100);
+  };
+  let dragging = false;
+  const start = () => { dragging = true; drev.style.cursor = 'ew-resize'; };
+  const move = (e) => {
+    if (!dragging) return;
+    const x = e.touches ? e.touches[0].clientX : e.clientX;
+    fromClient(x);
+    if (e.cancelable) e.preventDefault();
+  };
+  const end = () => { dragging = false; drev.style.cursor = ''; };
+  divider.addEventListener('pointerdown', start);
+  drev.addEventListener('pointerdown', (e) => {
+    if (e.target === range || e.target === divider || divider.contains(e.target)) start(e);
+  });
+  window.addEventListener('pointermove', move, { passive: false });
+  window.addEventListener('pointerup', end);
+
+  // one-time intro sweep: draft → ship
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { setPos(60); return; }
+  const from = 14, to = 60, dur = 1400;
+  let t0 = null;
+  setPos(from);
+  const ease = (x) => 1 - Math.pow(1 - x, 3);
+  const step = (ts) => {
+    if (!t0) t0 = ts;
+    const k = Math.min(1, (ts - t0) / dur);
+    setPos(from + (to - from) * ease(k));
+    if (k < 1) requestAnimationFrame(step);
+  };
+  setTimeout(() => requestAnimationFrame(step), 600);
+})();

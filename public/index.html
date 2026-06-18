@@ -175,24 +175,93 @@
   <section class="hero" id="hero">
     <canvas class="hero__canvas" id="bgCanvas" aria-hidden="true"></canvas>
     <div class="shell hero__inner">
-      <p class="hero__eyebrow"><span class="line"></span>PROTOTYPE-DRIVEN DEVELOPMENT</p>
-      <h1 class="hero__title">
-        プロトタイプを、<br />
-        <span class="stroke">使ってみてから。</span>
-      </h1>
-      <p class="hero__lead">
-        資料や見積もりは、後回しでいい。——御社の業務で実際に触れる試作（プロトタイプ）を、
-        まず2週間でお見せします。動かしながら「これだ」を確かめ、本体は約1ヶ月で。手応えがなければ、費用はいただきません。
-      </p>
-      <div class="hero__actions">
-        <a href="#contact" class="btn btn--solid">試作を依頼する</a>
-        <a href="#service" class="btn btn--line">進め方を見る</a>
+      <div class="hero__copy">
+        <p class="hero__eyebrow"><span class="line"></span>PROTOTYPE-DRIVEN DEVELOPMENT</p>
+        <h1 class="hero__title">
+          プロトタイプを、<br />
+          <span class="stroke">使ってみてから。</span>
+        </h1>
+        <p class="hero__lead">
+          資料や見積もりは、後回しでいい。——御社の業務で実際に触れる試作（プロトタイプ）を、
+          まず2週間でお見せします。動かしながら「これだ」を確かめ、本体は約1ヶ月で。手応えがなければ、費用はいただきません。
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--solid">試作を依頼する</a>
+          <a href="#service" class="btn btn--line">進め方を見る</a>
+        </div>
+        <ul class="hero__meta">
+          <li><b>試作</b>を2週間で提示</li>
+          <li><b>本体</b>を1ヶ月で納品</li>
+          <li><b>相談・試作</b>すべて0円</li>
+        </ul>
       </div>
-      <ul class="hero__meta">
-        <li><b>試作</b>を2週間で提示</li>
-        <li><b>本体</b>を1ヶ月で納品</li>
-        <li><b>相談・試作</b>すべて0円</li>
-      </ul>
+
+      <!-- 青写真 → 完成品 リビールスライダー -->
+      <div class="hero__mock">
+        <div class="drev" id="drev" style="--pos:60%">
+          <span class="drev__corner drev__corner--tl"></span><span class="drev__corner drev__corner--tr"></span>
+          <span class="drev__corner drev__corner--bl"></span><span class="drev__corner drev__corner--br"></span>
+
+          <!-- SHIP（完成品）レイヤー -->
+          <div class="drev__stage">
+            <div class="drev__app drev__app--ship">
+              <div class="drev__topbar">
+                <span class="drev__dot drev__dot--r"></span><span class="drev__dot drev__dot--y"></span><span class="drev__dot drev__dot--g"></span>
+                <span class="drev__title">在庫ダッシュボード</span>
+                <span class="drev__pill">● LIVE</span>
+              </div>
+              <div class="drev__kpis">
+                <div class="drev__kpi"><div class="drev__lab">在庫総数</div><div class="drev__num">1,248<span>点</span></div></div>
+                <div class="drev__kpi"><div class="drev__lab">入出庫/日</div><div class="drev__num">86<span>件</span></div></div>
+                <div class="drev__kpi"><div class="drev__lab">要発注</div><div class="drev__num">7<span>件</span></div></div>
+              </div>
+              <div class="drev__chart">
+                <span class="drev__col" style="height:46%"></span><span class="drev__col" style="height:68%"></span>
+                <span class="drev__col" style="height:54%"></span><span class="drev__col" style="height:88%"></span>
+                <span class="drev__col" style="height:62%"></span><span class="drev__col" style="height:74%"></span>
+              </div>
+              <div class="drev__rows">
+                <div class="drev__row"><i class="drev__seg drev__seg--a"></i><i class="drev__seg drev__seg--b"></i><i class="drev__seg drev__seg--c"></i></div>
+                <div class="drev__row"><i class="drev__seg drev__seg--a"></i><i class="drev__seg drev__seg--b"></i><i class="drev__seg drev__seg--c"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DRAFT（青写真）レイヤー・クリップ -->
+          <div class="drev__clip">
+            <div class="drev__app drev__app--draft">
+              <div class="drev__dimline"></div>
+              <span class="drev__annot drev__annot--1">REV.A / 試作</span>
+              <span class="drev__annot drev__annot--2">w:320 h:auto</span>
+              <div class="drev__topbar">
+                <span class="drev__dot"></span><span class="drev__dot"></span><span class="drev__dot"></span>
+                <span class="drev__title">在庫ダッシュボード</span>
+                <span class="drev__pill">DRAFT</span>
+              </div>
+              <div class="drev__kpis">
+                <div class="drev__kpi"><div class="drev__lab">在庫総数</div><div class="drev__num">1,248</div></div>
+                <div class="drev__kpi"><div class="drev__lab">入出庫/日</div><div class="drev__num">86</div></div>
+                <div class="drev__kpi"><div class="drev__lab">要発注</div><div class="drev__num">7</div></div>
+              </div>
+              <div class="drev__chart">
+                <span class="drev__col" style="height:46%"></span><span class="drev__col" style="height:68%"></span>
+                <span class="drev__col" style="height:54%"></span><span class="drev__col" style="height:88%"></span>
+                <span class="drev__col" style="height:62%"></span><span class="drev__col" style="height:74%"></span>
+              </div>
+              <div class="drev__rows">
+                <div class="drev__row"><i class="drev__seg drev__seg--a"></i><i class="drev__seg drev__seg--b"></i><i class="drev__seg drev__seg--c"></i></div>
+                <div class="drev__row"><i class="drev__seg drev__seg--a"></i><i class="drev__seg drev__seg--b"></i><i class="drev__seg drev__seg--c"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <span class="drev__tag drev__tag--l">試作 / DRAFT</span>
+          <span class="drev__tag drev__tag--r">本体 / SHIP</span>
+          <input type="range" min="0" max="100" value="60" id="drevRange" aria-label="試作と本体を切り替えるスライダー" />
+          <div class="drev__divider" id="drevDivider"><span class="drev__grip"></span></div>
+        </div>
+        <p class="drev__hint">つまみを <b>ドラッグ</b> して、青写真が完成品になる瞬間を。</p>
+      </div>
     </div>
     <div class="hero__scroll"><span></span>SCROLL</div>
   </section>

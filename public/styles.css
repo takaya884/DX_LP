@@ -149,8 +149,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero__eyebrow .line { width: 38px; height: 1px; background: var(--coral); }
 .hero__title {
-  font-size: clamp(2.6rem, 9vw, 6.4rem);
-  font-weight: 900; line-height: 1.02; letter-spacing: -0.02em;
+  font-size: clamp(2.3rem, 4.6vw, 4.3rem);
+  font-weight: 900; line-height: 1.12; letter-spacing: -0.02em;
+  word-break: keep-all;
 }
 .hero__title .stroke {
   color: transparent;
@@ -174,6 +175,110 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .hero__scroll span { width: 1px; height: 40px; background: linear-gradient(var(--coral), transparent); animation: scrollPulse 1.8s infinite; }
 @keyframes scrollPulse { 0%,100% { opacity: 0.3; transform: scaleY(0.6); } 50% { opacity: 1; transform: scaleY(1); } }
+
+/* hero becomes two columns once the reveal mock joins */
+.hero__inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 4vw, 56px); align-items: center; }
+.hero__copy { min-width: 0; }
+.hero__mock { position: relative; min-width: 0; }
+@media (max-width: 920px) {
+  .hero { padding: 116px 0 84px; }
+  .hero__inner { grid-template-columns: 1fr; gap: 44px; }
+  .hero__mock { max-width: 560px; width: 100%; }
+}
+
+/* ===== Hero reveal: 青写真(DRAFT) → 完成品(SHIP) slider ===== */
+.drev {
+  --pos: 60%;
+  position: relative; aspect-ratio: 5 / 4.3; border-radius: 3px; overflow: hidden;
+  background: var(--cream); border: 1px solid var(--line);
+  box-shadow: 12px 12px 0 rgba(17,179,166,0.13), 0 26px 60px -38px rgba(23,58,68,0.5);
+  user-select: none; touch-action: none;
+}
+.drev__corner { position: absolute; width: 12px; height: 12px; border: 1.5px solid var(--coral); z-index: 6; opacity: 0.85; }
+.drev__corner--tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.drev__corner--tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
+.drev__corner--bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+.drev__corner--br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+/* shared app geometry */
+.drev__stage { position: absolute; inset: 0; }
+.drev__app { position: absolute; inset: 0; padding: 56px 24px 22px; display: flex; flex-direction: column; gap: 12px; }
+.drev__topbar { display: flex; align-items: center; gap: 9px; }
+.drev__dot { width: 9px; height: 9px; border-radius: 50%; }
+.drev__title { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; margin-left: 6px; }
+.drev__pill { margin-left: auto; font-family: var(--mono); font-size: 0.56rem; padding: 3px 9px; border-radius: 999px; }
+.drev__kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.drev__kpi { border-radius: 3px; padding: 11px 12px 13px; }
+.drev__lab { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.08em; margin-bottom: 7px; }
+.drev__num { font-family: var(--en); font-weight: 700; font-size: 1.3rem; line-height: 1; }
+.drev__num span { font-size: 0.58rem; margin-left: 3px; opacity: 0.7; }
+.drev__chart { flex: 1; border-radius: 3px; padding: 14px; display: flex; align-items: flex-end; gap: 8px; min-height: 84px; }
+.drev__col { flex: 1; border-radius: 2px; }
+.drev__rows { display: flex; flex-direction: column; gap: 7px; }
+.drev__row { height: 13px; border-radius: 2px; display: flex; gap: 8px; align-items: center; }
+.drev__seg { height: 7px; border-radius: 2px; display: block; }
+
+/* SHIP layer — light dashboard */
+.drev__app--ship { background: radial-gradient(120% 90% at 80% -10%, var(--paper-2) 0%, var(--paper) 55%, #eaf3f2 100%); }
+.drev__app--ship .drev__dot--r { background: #ff6058; }
+.drev__app--ship .drev__dot--y { background: #ffbe2e; }
+.drev__app--ship .drev__dot--g { background: #28c840; }
+.drev__app--ship .drev__title { color: var(--ink); }
+.drev__app--ship .drev__pill { background: rgba(17,179,166,0.12); color: var(--coral-deep); border: 1px solid rgba(17,179,166,0.5); }
+.drev__app--ship .drev__kpi { background: #fff; border: 1px solid var(--line); box-shadow: 0 1px 0 var(--line-dk); }
+.drev__app--ship .drev__lab { color: var(--muted); }
+.drev__app--ship .drev__kpi:nth-child(1) .drev__num { color: var(--coral-deep); }
+.drev__app--ship .drev__kpi:nth-child(2) .drev__num { color: var(--ink); }
+.drev__app--ship .drev__kpi:nth-child(3) .drev__num { color: var(--coral); }
+.drev__app--ship .drev__chart { background: var(--paper-2); border: 1px solid var(--line); }
+.drev__app--ship .drev__col { background: linear-gradient(#bfe0db, #9ccfc8); }
+.drev__app--ship .drev__col:nth-child(4) { background: linear-gradient(var(--coral), var(--coral-deep)); box-shadow: 0 0 16px -6px var(--coral); }
+.drev__app--ship .drev__row { background: rgba(23,58,68,0.06); }
+.drev__app--ship .drev__seg--a { width: 34%; background: var(--coral); opacity: 0.85; }
+.drev__app--ship .drev__seg--b { width: 46%; background: rgba(23,58,68,0.22); }
+.drev__app--ship .drev__seg--c { width: 18%; background: var(--coral-deep); opacity: 0.85; }
+
+/* DRAFT (blueprint) layer — teal wireframe on paper, clipped */
+.drev__clip { position: absolute; inset: 0; z-index: 3; clip-path: inset(0 calc(100% - var(--pos, 60%)) 0 0); }
+.drev__app--draft {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 13px, rgba(17,179,166,0.06) 13px 14px),
+    repeating-linear-gradient(90deg, transparent 0 13px, rgba(17,179,166,0.06) 13px 14px),
+    var(--paper);
+  color: var(--coral-deep);
+}
+.drev__app--draft * { color: var(--coral-deep) !important; }
+.drev__app--draft .drev__dot { background: transparent; border: 1.4px solid var(--coral); }
+.drev__app--draft .drev__pill { background: transparent; border: 1px dashed var(--coral); }
+.drev__app--draft .drev__kpi { background: transparent; border: 1.4px dashed rgba(17,179,166,0.55); }
+.drev__app--draft .drev__chart { background: transparent; border: 1.4px dashed rgba(17,179,166,0.55); }
+.drev__app--draft .drev__col { background: repeating-linear-gradient(135deg, rgba(17,179,166,0.32) 0 3px, transparent 3px 6px); border: 1px solid var(--coral); }
+.drev__app--draft .drev__row { background: transparent; border: 1px dashed rgba(17,179,166,0.45); }
+.drev__app--draft .drev__seg { background: rgba(17,179,166,0.3) !important; }
+.drev__annot { position: absolute; font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.05em; color: var(--coral-deep); opacity: 0.85; }
+.drev__annot--1 { top: 92px; right: 28px; }
+.drev__annot--2 { bottom: 118px; left: 28px; }
+.drev__dimline { position: absolute; left: 24px; right: 24px; top: 80px; height: 1px; border-top: 1px dashed rgba(17,179,166,0.5); }
+.drev__dimline::before, .drev__dimline::after { content: ""; position: absolute; top: -3px; width: 1px; height: 7px; background: var(--coral); }
+.drev__dimline::before { left: 0; } .drev__dimline::after { right: 0; }
+
+/* divider handle + DRAFT/SHIP tags */
+.drev__divider { position: absolute; top: 0; bottom: 0; left: var(--pos, 60%); width: 2px; z-index: 8; background: linear-gradient(var(--coral), var(--coral-deep)); transform: translateX(-1px); cursor: ew-resize; }
+.drev__grip {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 42px; height: 42px; border-radius: 50%; background: #fff; border: 1.5px solid var(--coral);
+  display: grid; place-items: center; color: var(--coral-deep); font-family: var(--mono); font-size: 0.55rem;
+  box-shadow: 0 6px 18px -6px rgba(23,58,68,0.4), 0 0 0 6px rgba(17,179,166,0.12);
+}
+.drev__grip::before { content: "◂ ▸"; letter-spacing: -1px; }
+.drev__tag { position: absolute; top: 13px; z-index: 9; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; padding: 5px 11px; border-radius: 2px; backdrop-filter: blur(3px); }
+.drev__tag--l { left: 13px; background: rgba(255,255,255,0.82); border: 1px solid var(--coral); color: var(--coral-deep); }
+.drev__tag--r { right: 13px; background: rgba(23,58,68,0.06); border: 1px solid var(--ink); color: var(--ink); }
+.drev input[type="range"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10; margin: 0; }
+.drev input[type="range"]:focus-visible + .drev__divider .drev__grip { box-shadow: 0 0 0 4px var(--coral); }
+.drev__hint { margin-top: 14px; text-align: center; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.02em; }
+.drev__hint b { color: var(--coral-deep); }
+@media (prefers-reduced-motion: reduce) { .drev__app--draft, .drev__divider, .drev__clip { transition: none !important; } }
 
 /* ===== Marquee (light chip ticker) ===== */
 .marquee { background: var(--paper); color: var(--ink); padding: 18px 0; overflow: hidden; border-block: 1px solid var(--line); }
