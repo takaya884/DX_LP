@@ -87,12 +87,90 @@
           "description": "初回相談・動く見本づくり・使えるシステムのお渡しまで費用0円。納得後に契約。",
           "price": "0",
           "priceCurrency": "JPY"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "プロトメイクの提供サービス",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "御社専用システムを一から開発",
+                "description": "市販のソフトに業務を合わせるのではなく、御社の今のやり方に合わせて設計・開発する、フルオーダーメイドの業務システム開発。"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "動く見本を2週間でお見せ",
+                "description": "実際にさわれる動く見本（プロトタイプ）を2週間で用意し、イメージのズレや後からのやり直しを防ぐプロトタイプ開発。"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "1ヶ月で実際に使えるシステムを提供",
+                "description": "業務に必要な分のシステム（MVP）を約1ヶ月ですぐ使える状態でお渡し。気に入った場合のみ契約。"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "AI（ChatGPTなど）の活用サポート",
+                "description": "仕事へのAI活用、作るシステムへのAI組み込み、社員向けの使い方レクチャー・社内勉強会まで対応。"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "ホームページ制作・リニューアル",
+                "description": "新規制作、作り直し、スマホ対応、表示の高速化、公開後の運用サポートまで、集客や採用の目的から逆算して制作。"
+              }
+            }
+          ]
         }
       },
       {
         "@type": "FAQPage",
         "@id": "https://protmake.com/#faq",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "プロトメイクとは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "プロトメイクは、株式会社GRAZKeが提供する中小企業向けの「動く見本（プロトタイプ）」から始めるシステム開発サービスです。資料や見積もりの前に、実際にさわれる動く見本を2週間でお見せし、業務で使える本番システムを約1ヶ月で提供します。初回相談・見本づくりは無料で、納得いただけた場合のみ契約・お支払いです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "他のシステム開発会社と何が違いますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "一般的な開発会社は仕様書や見積もりが先ですが、プロトメイクは先に「動く見本」をお見せします。実際に使える完成品を確認し、納得してからの契約なので「思っていたのと違う」「追加費用が積み上がる」といった失敗が起きません。気に入らなければ費用は0円です。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "開発期間はどのくらいですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "実際にさわれる動く見本は2週間で、業務で使える本番システムは相談から最短約1ヶ月でお渡しします。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "対応エリアはどこですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "全国に対応しています。拠点は愛知県名古屋市ですが、面談はオンライン中心のため地域を問わずご依頼いただけます。必要に応じて訪問でのご相談も可能です。"
+            }
+          },
           {
             "@type": "Question",
             "name": "本当に契約前は費用がかからないの？",
@@ -142,6 +220,62 @@
             }
           }
         ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://protmake.com/#howto",
+        "name": "プロトメイクの進め方（相談から納品まで）",
+        "description": "相談から実際に使えるシステムの納品まで、最短1ヶ月。契約までは費用0円で進められます。",
+        "totalTime": "P1M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "JPY",
+          "value": "0"
+        },
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "無料オンライン相談",
+            "text": "オンラインで、今困っていることやご要望をお聞きします。費用は0円で、しつこい営業はしません。",
+            "url": "https://protmake.com/#flow"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "動く見本をお見せ",
+            "text": "2週間で動く見本を作ってお見せします。実際にさわって、イメージとのズレを確認いただきます。",
+            "url": "https://protmake.com/#flow"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "使えるシステムを提供",
+            "text": "1ヶ月以内に、業務で実際に使えるシステムを、すぐ試せる状態でお渡しします。ここまで費用はかかりません。",
+            "url": "https://protmake.com/#flow"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "契約判断",
+            "text": "気に入っていただけたら契約。お気持ちに応じた無理のない料金で本格運用へ進みます。",
+            "url": "https://protmake.com/#flow"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://protmake.com/#webpage",
+        "url": "https://protmake.com/",
+        "name": "プロトメイク｜動く見本から始める、御社専用のシステム開発",
+        "isPartOf": { "@id": "https://protmake.com/#website" },
+        "about": { "@id": "https://protmake.com/#service" },
+        "primaryImageOfPage": "https://protmake.com/logo-grazke.png",
+        "inLanguage": "ja",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1.hero__title", "p.hero__lead", ".faq__list"]
+        }
       }
     ]
   }
@@ -509,6 +643,10 @@
         <h2 class="block__title">よくある質問</h2>
       </header>
       <div class="faq__list">
+        <details><summary>プロトメイクとは何ですか？</summary><p>プロトメイクは、株式会社GRAZKeが提供する中小企業向けの「動く見本（プロトタイプ）」から始めるシステム開発サービスです。資料や見積もりの前に、実際にさわれる動く見本を2週間でお見せし、業務で使える本番システムを約1ヶ月で提供します。初回相談・見本づくりは無料で、納得いただけた場合のみ契約・お支払いです。</p></details>
+        <details><summary>他のシステム開発会社と何が違いますか？</summary><p>一般的な開発会社は仕様書や見積もりが先ですが、プロトメイクは先に「動く見本」をお見せします。実際に使える完成品を確認し、納得してからの契約なので「思っていたのと違う」「追加費用が積み上がる」といった失敗が起きません。気に入らなければ費用は0円です。</p></details>
+        <details><summary>開発期間はどのくらいですか？</summary><p>実際にさわれる動く見本は2週間で、業務で使える本番システムは相談から最短約1ヶ月でお渡しします。</p></details>
+        <details><summary>対応エリアはどこですか？</summary><p>全国に対応しています。拠点は愛知県名古屋市ですが、面談はオンライン中心のため地域を問わずご依頼いただけます。必要に応じて訪問でのご相談も可能です。</p></details>
         <details><summary>本当に契約前は費用がかからないの？</summary><p>はい。初回相談から、実際に使えるシステムをお渡しするまで費用は0円です。実際に使える状態のシステムを確認し、気に入っていただけた場合のみご契約・お支払いとなります。</p></details>
         <details><summary>どんなシステムでも作れますか？</summary><p>日々の仕事をラクにする、御社専用のシステム開発を得意としています。一方で、大規模なサービス開発や、市販のソフトで十分に対応できる業種（飲食業など）は対象外とさせていただく場合があります。</p></details>
         <details><summary>AIの活用についても相談できますか？</summary><p>はい。AI（ChatGPTなど）の仕事への活用や、作るシステムへのAI組み込みに加え、社員向けの使い方レクチャー・社内勉強会も承っています。「自社の仕事でAIに何ができるのか知りたい」といった段階からのご相談も歓迎です。</p></details>
