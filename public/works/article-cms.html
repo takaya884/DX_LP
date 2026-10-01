@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>記事管理システム（CMS管理画面）の開発事例｜プロトメイク</title>
+  <meta name="description" content="記事の作成・編集、公開・非公開の切り替え、検索・絞り込み、タグ整理、利用者ごとの権限管理を一つの画面で行える記事管理システム（CMS）の開発事例。" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://protmake.com/works/article-cms" />
+  <link rel="alternate" hreflang="ja" href="https://protmake.com/works/article-cms" />
+  <meta name="theme-color" content="#173a44" />
+  <link rel="icon" href="/logo-grazke.png" type="image/png" />
+  <meta property="og:site_name" content="プロトメイク" />
+  <meta property="og:title" content="記事管理システム（CMS管理画面）の開発事例｜プロトメイク" />
+  <meta property="og:description" content="記事の作成・編集、公開・非公開の切り替え、検索・絞り込み、タグ整理、利用者ごとの権限管理を一つの画面で行える記事管理システム（CMS）の開発事例。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://protmake.com/works/article-cms" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:image" content="https://protmake.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM向けサイト概要" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://protmake.com/works/article-cms#webpage",
+      "url": "https://protmake.com/works/article-cms",
+      "name": "記事管理システム（CMS管理画面）の開発事例｜プロトメイク",
+      "description": "記事の作成・編集、公開・非公開の切り替え、検索・絞り込み、タグ整理、利用者ごとの権限管理を一つの画面で行える記事管理システム（CMS）の開発事例。",
+      "inLanguage": "ja",
+      "isPartOf": {
+        "@id": "https://protmake.com/#website"
+      },
+      "about": {
+        "@id": "https://protmake.com/#organization"
+      },
+      "dateModified": "2026-10-01",
+      "breadcrumb": {
+        "@id": "https://protmake.com/works/article-cms#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://protmake.com/works/article-cms#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "トップ",
+          "item": "https://protmake.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "実績",
+          "item": "https://protmake.com/#works"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "記事管理システム（管理画面）",
+          "item": "https://protmake.com/works/article-cms"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://protmake.com/works/article-cms#work",
+      "name": "記事管理システム（管理画面）",
+      "description": "記事の作成・編集、公開・非公開の切り替え、検索・絞り込み、タグ整理、利用者ごとの権限管理を一つの画面で行える記事管理システム（CMS）の開発事例。",
+      "creator": {
+        "@id": "https://protmake.com/#organization"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://protmake.com/works/article-cms.webp",
+        "width": 1604,
+        "height": 660,
+        "caption": "記事管理システムの管理画面"
+      },
+      "url": "https://protmake.com/works/article-cms"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header is-scrolled" id="header">
+    <div class="shell header__inner">
+      <a href="/" class="logo">
+        <img src="/logo-grazke.webp" alt="株式会社GRAZKe" class="logo__img" width="256" height="256" />
+        <span class="logo__name">プロトメイク</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="/#service">サービス</a>
+        <a href="/#flow">進め方</a>
+        <a href="/#works">実績</a>
+        <a href="/pricing">料金</a>
+        <a href="/#faq">Q&amp;A</a>
+        <a href="/#contact" class="nav__cta">無料で見本を依頼 <span>→</span></a>
+      </nav>
+      <button class="burger" id="navToggle" aria-label="メニュー" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="legal-hero">
+    <div class="shell shell--narrow">
+      <nav class="sub-crumb" aria-label="パンくずリスト"><a href="/">トップ</a><span>/</span><a href="/#works">実績</a><span>/</span><b>記事管理システム（管理画面）</b></nav>
+      <p class="legal-hero__eyebrow">WORKS — 業務システム</p>
+      <h1 class="legal-hero__title sub-title">記事管理システム（管理画面）</h1>
+      <p class="sub-lead">記事の作成・編集から、公開・非公開の切り替え、タイトルや本文での検索・絞り込みまでを一つの画面で行える管理画面です。</p>
+      <p class="legal-hero__date">最終更新：<time datetime="2026-10-01">2026.10.01</time></p>
+    </div>
+  </section>
+
+  <main class="legal">
+    <div class="shell shell--narrow">
+      <figure class="sub-shot"><span class="work__bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="/works/article-cms.webp" alt="記事管理システムの管理画面" width="1604" height="660" /></figure>
+      <section class="legal__sec">
+        <h2><span class="num">01</span>主な機能</h2>
+        <ul>
+<li>記事の作成・編集・削除</li>
+<li>公開・非公開の切り替え</li>
+<li>タイトル・本文での検索、条件での絞り込み</li>
+<li>タグによる整理</li>
+<li>利用者ごとの権限設定</li>
+</ul>
+      </section>
+      <section class="legal__sec">
+        <h2><span class="num">02</span>こんな会社におすすめ</h2>
+        <p>お知らせ・ブログ・商品情報などを複数人で更新している、今のツールが使いにくく更新が止まりがち、といった場合に向いています。記事以外にも、商品・会員・案件など、データの登録と公開管理が必要な業務に応用できます。</p>
+      </section>
+
+      <aside class="sub-cta">
+        <p class="sub-cta__sm">相談・見本づくりは0円／無理な勧誘なし</p>
+        <p class="sub-cta__lg">まずは、御社の仕事で<br class="sp" />「動く見本」をさわってみませんか。</p>
+        <a href="/#contact" class="btn btn--solid" data-cta="sub-works-article-cms"><span>無料で「動く見本」を依頼する</span><i class="btn__arrow">→</i></a>
+      </aside>
+
+      <nav class="sub-links" aria-label="関連ページ">
+        <p class="sub-links__ttl">関連ページ</p>
+        <div>
+          <a href="/service/system">業務システム開発 <i>→</i></a>
+          <a href="/service/prototype">プロトタイプ開発 <i>→</i></a>
+          <a href="/service/ai">AI活用サポート <i>→</i></a>
+          <a href="/service/web">ホームページ制作 <i>→</i></a>
+          <a href="/pricing">料金の考え方 <i>→</i></a>
+          <a href="/works/inventory">実績：在庫管理 <i>→</i></a>
+          <a href="/works/stocktake">実績：棚卸システム <i>→</i></a>
+        </div>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <div class="footer__brand">
+        <p class="footer__logo">プロトメイク <span>-protmake-</span></p>
+        <p class="footer__tag">御社の業務に、<br />ぴったり合うシステムを。</p>
+      </div>
+      <dl class="footer__info">
+        <div><dt>会社名</dt><dd>株式会社 GRAZKe</dd></div>
+        <div><dt>所在地</dt><dd>〒460-0002<br />愛知県名古屋市中区丸の内2丁目3-23 和波ビル6階</dd></div>
+        <div><dt>担当</dt><dd>林 貴也</dd></div>
+      </dl>
+      <nav class="footer__nav">
+        <a href="/service/system">業務システム開発</a><a href="/service/prototype">プロトタイプ開発</a>
+        <a href="/service/ai">AI活用サポート</a><a href="/service/web">ホームページ制作</a>
+        <a href="/pricing">料金の考え方</a><a href="/#contact">お問い合わせ</a>
+        <a href="/privacy">プライバシーポリシー</a>
+      </nav>
+    </div>
+    <p class="footer__copy">© 2026 株式会社GRAZKe</p>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>

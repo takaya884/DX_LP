@@ -9,6 +9,8 @@
     // LP本体の静的ファイル置き場
     "directory": "./public",
     // Worker から静的アセットを返すためのバインディング（src/index.js の env.ASSETS）
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // http→https や *.html→拡張子なし の301リダイレクトを Worker で行うため、先に Worker を通す
+    "run_worker_first": true
   }
 }

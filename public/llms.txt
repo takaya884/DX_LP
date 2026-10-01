@@ -25,7 +25,15 @@
 ## 公式サイト
 
 - [トップページ](https://protmake.com/): サービス概要・進め方・実績・FAQ・お問い合わせフォーム
-- [プライバシーポリシー](https://protmake.com/privacy.html): 個人情報の取り扱い
+- [業務システム開発](https://protmake.com/service/system): 御社専用の業務システム開発。作れるシステムの例、市販ソフトとの違い
+- [プロトタイプ開発・MVP開発](https://protmake.com/service/prototype): 2週間で動く見本、約1ヶ月でMVP
+- [AI活用サポート・社内研修](https://protmake.com/service/ai): ChatGPTなどの業務活用、システムへのAI組み込み、社員向けレクチャー
+- [ホームページ制作・リニューアル](https://protmake.com/service/web): 新規制作、作り直し、スマホ対応、高速化、検索・AI対策
+- [料金の考え方](https://protmake.com/pricing): 契約前0円、納得してから契約する料金方針
+- [実績：在庫管理システム](https://protmake.com/works/inventory): 店舗別在庫の一元管理、他システムとのデータ連携
+- [実績：ハンディ端末の棚卸システム](https://protmake.com/works/stocktake): バーコード読み取り、オフライン対応
+- [実績：記事管理システム](https://protmake.com/works/article-cms): 記事の作成・公開管理、検索、権限管理
+- [プライバシーポリシー](https://protmake.com/privacy): 個人情報の取り扱い
 
 ## 運営者
 
@@ -77,3 +85,4 @@
 - サービス名は「プロトメイク」、運営は「株式会社GRAZKe」です。
 - 料金は固定見積もりではなく、価値に納得いただいた分での契約方針です。具体的金額はサイト上に記載していません。
 - 最新情報は公式サイト https://protmake.com/ を参照してください。
+- 最終更新: 2026-10-01

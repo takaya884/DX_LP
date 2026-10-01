@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ハンディ端末の棚卸システム開発事例（バーコード・オフライン対応）｜プロトメイク</title>
+  <meta name="description" content="バーコードを読み取るハンディ端末向けの棚卸アプリの開発事例。入庫・出庫・棚卸・納品チェックを現場で完結。電波がない場所でも作業でき、後からまとめて送受信できるオフライン対応。" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://protmake.com/works/stocktake" />
+  <link rel="alternate" hreflang="ja" href="https://protmake.com/works/stocktake" />
+  <meta name="theme-color" content="#173a44" />
+  <link rel="icon" href="/logo-grazke.png" type="image/png" />
+  <meta property="og:site_name" content="プロトメイク" />
+  <meta property="og:title" content="ハンディ端末の棚卸システム開発事例（バーコード・オフライン対応）｜プロトメイク" />
+  <meta property="og:description" content="バーコードを読み取るハンディ端末向けの棚卸アプリの開発事例。入庫・出庫・棚卸・納品チェックを現場で完結。電波がない場所でも作業でき、後からまとめて送受信できるオフライン対応。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://protmake.com/works/stocktake" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:image" content="https://protmake.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM向けサイト概要" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://protmake.com/works/stocktake#webpage",
+      "url": "https://protmake.com/works/stocktake",
+      "name": "ハンディ端末の棚卸システム開発事例（バーコード・オフライン対応）｜プロトメイク",
+      "description": "バーコードを読み取るハンディ端末向けの棚卸アプリの開発事例。入庫・出庫・棚卸・納品チェックを現場で完結。電波がない場所でも作業でき、後からまとめて送受信できるオフライン対応。",
+      "inLanguage": "ja",
+      "isPartOf": {
+        "@id": "https://protmake.com/#website"
+      },
+      "about": {
+        "@id": "https://protmake.com/#organization"
+      },
+      "dateModified": "2026-10-01",
+      "breadcrumb": {
+        "@id": "https://protmake.com/works/stocktake#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://protmake.com/works/stocktake#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "トップ",
+          "item": "https://protmake.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "実績",
+          "item": "https://protmake.com/#works"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ハンディ端末（バーコード読み取り機）の棚卸システム",
+          "item": "https://protmake.com/works/stocktake"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://protmake.com/works/stocktake#work",
+      "name": "ハンディ端末（バーコード読み取り機）の棚卸システム",
+      "description": "バーコードを読み取るハンディ端末向けの棚卸アプリの開発事例。入庫・出庫・棚卸・納品チェックを現場で完結。電波がない場所でも作業でき、後からまとめて送受信できるオフライン対応。",
+      "creator": {
+        "@id": "https://protmake.com/#organization"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://protmake.com/works/ht-stocktake.webp",
+        "width": 828,
+        "height": 1034,
+        "caption": "ハンディ端末向け棚卸システムのメニュー画面"
+      },
+      "url": "https://protmake.com/works/stocktake"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header is-scrolled" id="header">
+    <div class="shell header__inner">
+      <a href="/" class="logo">
+        <img src="/logo-grazke.webp" alt="株式会社GRAZKe" class="logo__img" width="256" height="256" />
+        <span class="logo__name">プロトメイク</span>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="/#service">サービス</a>
+        <a href="/#flow">進め方</a>
+        <a href="/#works">実績</a>
+        <a href="/pricing">料金</a>
+        <a href="/#faq">Q&amp;A</a>
+        <a href="/#contact" class="nav__cta">無料で見本を依頼 <span>→</span></a>
+      </nav>
+      <button class="burger" id="navToggle" aria-label="メニュー" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="legal-hero">
+    <div class="shell shell--narrow">
+      <nav class="sub-crumb" aria-label="パンくずリスト"><a href="/">トップ</a><span>/</span><a href="/#works">実績</a><span>/</span><b>ハンディ端末（バーコード読み取り機）の棚卸システム</b></nav>
+      <p class="legal-hero__eyebrow">WORKS — ハンディ端末アプリ</p>
+      <h1 class="legal-hero__title sub-title">ハンディ端末（バーコード読み取り機）の棚卸システム</h1>
+      <p class="sub-lead">バーコードを読み取る手持ちの機械（ハンディ端末）向けの棚卸アプリです。入庫・出庫・棚卸・納品チェックを現場でその場で済ませられます。</p>
+      <p class="legal-hero__date">最終更新：<time datetime="2026-10-01">2026.10.01</time></p>
+    </div>
+  </section>
+
+  <main class="legal">
+    <div class="shell shell--narrow">
+      <figure class="sub-shot"><span class="work__bar" aria-hidden="true"><i></i><i></i><i></i></span><img src="/works/ht-stocktake.webp" alt="ハンディ端末向け棚卸システムのメニュー画面" width="828" height="1034" /></figure>
+      <section class="legal__sec">
+        <h2><span class="num">01</span>解決したかったこと</h2>
+        <ul>
+<li>紙に書いた数を、事務所でエクセルに打ち直している</li>
+<li>書き写しの手間とミスが発生する</li>
+<li>倉庫の奥など、電波が届かない場所で作業が止まる</li>
+</ul>
+      </section>
+      <section class="legal__sec">
+        <h2><span class="num">02</span>主な機能</h2>
+        <ul>
+<li>バーコード読み取りによる入庫・出庫・棚卸・納品チェック</li>
+<li>読み取ったデータを端末内に保存</li>
+<li>電波がない場所でも作業を継続（オフライン対応）</li>
+<li>電波の届く場所で、後からまとめてデータを送受信</li>
+</ul>
+      </section>
+      <section class="legal__sec">
+        <h2><span class="num">03</span>こんな会社におすすめ</h2>
+        <p>倉庫・工場・店舗のバックヤードで在庫を数えている、紙とエクセルで棚卸をしている、電波の弱い場所で作業がある、といった現場に向いています。ハンディ端末のほか、スマホのカメラでの読み取りにも対応できます。</p>
+      </section>
+
+      <aside class="sub-cta">
+        <p class="sub-cta__sm">相談・見本づくりは0円／無理な勧誘なし</p>
+        <p class="sub-cta__lg">まずは、御社の仕事で<br class="sp" />「動く見本」をさわってみませんか。</p>
+        <a href="/#contact" class="btn btn--solid" data-cta="sub-works-stocktake"><span>無料で「動く見本」を依頼する</span><i class="btn__arrow">→</i></a>
+      </aside>
+
+      <nav class="sub-links" aria-label="関連ページ">
+        <p class="sub-links__ttl">関連ページ</p>
+        <div>
+          <a href="/service/system">業務システム開発 <i>→</i></a>
+          <a href="/service/prototype">プロトタイプ開発 <i>→</i></a>
+          <a href="/service/ai">AI活用サポート <i>→</i></a>
+          <a href="/service/web">ホームページ制作 <i>→</i></a>
+          <a href="/pricing">料金の考え方 <i>→</i></a>
+          <a href="/works/inventory">実績：在庫管理 <i>→</i></a>
+          <a href="/works/article-cms">実績：記事管理 <i>→</i></a>
+        </div>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <div class="footer__brand">
+        <p class="footer__logo">プロトメイク <span>-protmake-</span></p>
+        <p class="footer__tag">御社の業務に、<br />ぴったり合うシステムを。</p>
+      </div>
+      <dl class="footer__info">
+        <div><dt>会社名</dt><dd>株式会社 GRAZKe</dd></div>
+        <div><dt>所在地</dt><dd>〒460-0002<br />愛知県名古屋市中区丸の内2丁目3-23 和波ビル6階</dd></div>
+        <div><dt>担当</dt><dd>林 貴也</dd></div>
+      </dl>
+      <nav class="footer__nav">
+        <a href="/service/system">業務システム開発</a><a href="/service/prototype">プロトタイプ開発</a>
+        <a href="/service/ai">AI活用サポート</a><a href="/service/web">ホームページ制作</a>
+        <a href="/pricing">料金の考え方</a><a href="/#contact">お問い合わせ</a>
+        <a href="/privacy">プライバシーポリシー</a>
+      </nav>
+    </div>
+    <p class="footer__copy">© 2026 株式会社GRAZKe</p>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
