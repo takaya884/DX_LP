@@ -40,11 +40,13 @@ export async function handleContact(request, env) {
 
   // 5) Slack メッセージを組み立て
   const fields = [
+    ['ご相談テーマ', body.topic],
     ['会社名・屋号', body.company],
     ['お名前', name],
     ['メール', email],
     ['電話番号', body.tel],
     ['従業員数', body.size],
+    ['流入元', body.source],
   ]
     .filter(([, v]) => v && String(v).trim())
     .map(([k, v]) => ({ type: 'mrkdwn', text: `*${k}*\n${String(v).trim()}` }));

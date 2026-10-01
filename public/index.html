@@ -10,7 +10,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://protmake.com/" />
   <link rel="alternate" hreflang="ja" href="https://protmake.com/" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#173a44" />
   <link rel="icon" href="logo-grazke.png" type="image/png" />
   <link rel="apple-touch-icon" href="logo-grazke.png" />
 
@@ -21,14 +21,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://protmake.com/" />
   <meta property="og:locale" content="ja_JP" />
-  <meta property="og:image" content="https://protmake.com/logo-grazke.png" />
+  <meta property="og:image" content="https://protmake.com/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="プロトメイク｜株式会社GRAZKe" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="プロトメイク｜動く見本から始める、御社専用のシステム開発" />
   <meta name="twitter:description" content="資料や見積もりの前に、まず実際にさわれる「動く見本」を2週間で。本番システムは約1ヶ月。ピンとこなければ費用はいただきません。" />
-  <meta name="twitter:image" content="https://protmake.com/logo-grazke.png" />
+  <meta name="twitter:image" content="https://protmake.com/og.png" />
 
   <!-- LLMO: AI向けサイト概要 -->
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM向けサイト概要" />
@@ -37,6 +39,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // JS有効時のみ入場アニメーション用の初期状態にする（読み込み失敗時も2.5秒で必ず表示）
+    document.documentElement.classList.add('js');
+    setTimeout(function () { document.documentElement.classList.add('is-loaded'); }, 2500);
+  </script>
 
   <script type="application/ld+json">
   {
@@ -270,7 +277,7 @@
         "name": "プロトメイク｜動く見本から始める、御社専用のシステム開発",
         "isPartOf": { "@id": "https://protmake.com/#website" },
         "about": { "@id": "https://protmake.com/#service" },
-        "primaryImageOfPage": "https://protmake.com/logo-grazke.png",
+        "primaryImageOfPage": "https://protmake.com/og.png",
         "inLanguage": "ja",
         "speakable": {
           "@type": "SpeakableSpecification",
@@ -284,23 +291,26 @@
 <body>
   <!-- grain overlay -->
   <div class="grain" aria-hidden="true"></div>
+  <!-- scroll progress -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
   <!-- ===== Header ===== -->
   <header class="header" id="header">
     <div class="shell header__inner">
       <a href="#hero" class="logo">
         <img src="logo-grazke.png" alt="株式会社GRAZKe" class="logo__img" />
-        <span class="logo__name">プロトメイク -protmake-</span>
+        <span class="logo__name">プロトメイク <em>-protmake-</em></span>
       </a>
       <nav class="nav" id="nav">
         <a href="#problem">課題</a>
-        <a href="#service">サービス</a>
+        <a href="#reason">選ばれる理由</a>
         <a href="#flow">進め方</a>
+        <a href="#service">サービス</a>
         <a href="#works">実績</a>
         <a href="#faq">Q&amp;A</a>
-        <a href="#contact" class="nav__cta">無料相談 <span>→</span></a>
+        <a href="#contact" class="nav__cta" data-cta="header">無料で見本を依頼 <span>→</span></a>
       </nav>
-      <button class="burger" id="navToggle" aria-label="メニュー"><span></span><span></span></button>
+      <button class="burger" id="navToggle" aria-label="メニュー" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
     </div>
   </header>
 
@@ -308,25 +318,29 @@
   <!-- ===== Hero ===== -->
   <section class="hero" id="hero">
     <canvas class="hero__canvas" id="bgCanvas" aria-hidden="true"></canvas>
+    <div class="hero__glow" aria-hidden="true"></div>
     <div class="shell hero__inner">
       <div class="hero__copy">
-        <p class="hero__eyebrow"><span class="line"></span>PROTOTYPE-DRIVEN DEVELOPMENT</p>
+        <p class="hero__eyebrow"><span class="hero__badge">契約まで <b>¥0</b></span><span class="line"></span>PROTOTYPE-FIRST DEVELOPMENT</p>
         <h1 class="hero__title">
-          できあがりを、<br />
-          <span class="stroke">先に使ってから。</span>
+          <span class="hero__line"><span class="hero__line-in">できあがりを、</span></span>
+          <span class="hero__line"><span class="hero__line-in"><span class="stroke" data-text="先に使ってから。">先に使ってから。</span></span></span>
         </h1>
         <p class="hero__lead">
-          資料や見積もりは、後回しでいい。——御社の仕事で実際にさわれる「動く見本」を、
-          まず2週間でお見せします。手を動かしながら「これだ」を確かめてから、実際に使う本番のシステムは約1ヶ月で。ピンとこなければ、費用はいただきません。
+          資料や見積もりは、後回しでいい。御社の仕事で実際にさわれる<mark>「動く見本」を2週間で</mark>お見せします。
+          「これだ」と確かめてから、本番のシステムは約1ヶ月で。<strong>ピンとこなければ、費用はいただきません。</strong>
         </p>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn--solid">見本を作ってもらう</a>
-          <a href="#service" class="btn btn--line">進め方を見る</a>
+          <a href="#contact" class="btn btn--solid btn--lg magnetic" data-cta="hero">
+            <span>無料で「動く見本」を依頼する</span><i class="btn__arrow">→</i>
+          </a>
+          <a href="#flow" class="btn btn--ghost">進め方を見る</a>
         </div>
+        <p class="hero__micro"><span>入力は約1分</span> ／ <span>相談・見本づくり0円</span> ／ <span>無理な勧誘なし</span></p>
         <ul class="hero__meta">
-          <li><b>動く見本</b>を2週間で</li>
-          <li><b>本番システム</b>を1ヶ月で</li>
-          <li><b>相談・見本づくり</b>すべて0円</li>
+          <li><span class="hero__meta-num">2<small>週間</small></span><span class="hero__meta-lab">動く見本</span></li>
+          <li><span class="hero__meta-num">1<small>ヶ月</small></span><span class="hero__meta-lab">本番システム</span></li>
+          <li><span class="hero__meta-num">¥0</span><span class="hero__meta-lab">契約前の費用</span></li>
         </ul>
       </div>
 
@@ -345,14 +359,14 @@
                 <span class="drev__pill">● LIVE</span>
               </div>
               <div class="drev__kpis">
-                <div class="drev__kpi"><div class="drev__lab">在庫総数</div><div class="drev__num">1,248<span>点</span></div></div>
-                <div class="drev__kpi"><div class="drev__lab">入出庫/日</div><div class="drev__num">86<span>件</span></div></div>
-                <div class="drev__kpi"><div class="drev__lab">要発注</div><div class="drev__num">7<span>件</span></div></div>
+                <div class="drev__kpi"><div class="drev__lab">在庫総数</div><div class="drev__num"><span data-count="1248">1,248</span><span>点</span></div></div>
+                <div class="drev__kpi"><div class="drev__lab">入出庫/日</div><div class="drev__num"><span data-count="86">86</span><span>件</span></div></div>
+                <div class="drev__kpi"><div class="drev__lab">要発注</div><div class="drev__num"><span data-count="7">7</span><span>件</span></div></div>
               </div>
               <div class="drev__chart">
-                <span class="drev__col" style="height:46%"></span><span class="drev__col" style="height:68%"></span>
-                <span class="drev__col" style="height:54%"></span><span class="drev__col" style="height:88%"></span>
-                <span class="drev__col" style="height:62%"></span><span class="drev__col" style="height:74%"></span>
+                <span class="drev__col" style="--h:46%"></span><span class="drev__col" style="--h:68%"></span>
+                <span class="drev__col" style="--h:54%"></span><span class="drev__col" style="--h:88%"></span>
+                <span class="drev__col" style="--h:62%"></span><span class="drev__col" style="--h:74%"></span>
               </div>
               <div class="drev__rows">
                 <div class="drev__row"><i class="drev__seg drev__seg--a"></i><i class="drev__seg drev__seg--b"></i><i class="drev__seg drev__seg--c"></i></div>
@@ -378,9 +392,9 @@
                 <div class="drev__kpi"><div class="drev__lab">要発注</div><div class="drev__num">7</div></div>
               </div>
               <div class="drev__chart">
-                <span class="drev__col" style="height:46%"></span><span class="drev__col" style="height:68%"></span>
-                <span class="drev__col" style="height:54%"></span><span class="drev__col" style="height:88%"></span>
-                <span class="drev__col" style="height:62%"></span><span class="drev__col" style="height:74%"></span>
+                <span class="drev__col" style="--h:46%"></span><span class="drev__col" style="--h:68%"></span>
+                <span class="drev__col" style="--h:54%"></span><span class="drev__col" style="--h:88%"></span>
+                <span class="drev__col" style="--h:62%"></span><span class="drev__col" style="--h:74%"></span>
               </div>
               <div class="drev__rows">
                 <div class="drev__row"><i class="drev__seg drev__seg--a"></i><i class="drev__seg drev__seg--b"></i><i class="drev__seg drev__seg--c"></i></div>
@@ -394,19 +408,22 @@
           <input type="range" min="0" max="100" value="60" id="drevRange" aria-label="試作と本体を切り替えるスライダー" />
           <div class="drev__divider" id="drevDivider"><span class="drev__grip"></span></div>
         </div>
+        <div class="hero__sticker" aria-hidden="true">
+          <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
+            <text><textPath href="#circ">DRAFT → SHIP ・ 2 WEEKS ・ NO RISK ・ </textPath></text></svg>
+          <span>¥0</span>
+        </div>
         <p class="drev__hint">つまみを <b>ドラッグ</b> して、青写真が完成品になる瞬間を。</p>
       </div>
     </div>
-    <div class="hero__scroll"><span></span>SCROLL</div>
+    <a href="#problem" class="hero__scroll" aria-label="下へスクロール"><span></span>SCROLL</a>
   </section>
 
   <!-- ===== Marquee ===== -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
-      <span>PROTOTYPE FIRST</span><i>▸</i><span>試作で見せる</span><i>▸</i><span>御社専用システム</span><i>▸</i><span>業務システム</span><i>▸</i>
-      <span>生成AI活用</span><i>▸</i><span>2週間で試作</span><i>▸</i><span>1ヶ月で本体</span><i>▸</i><span>DRAFT → SHIP</span><i>▸</i><span>NO RISK</span><i>▸</i>
-      <span>PROTOTYPE FIRST</span><i>▸</i><span>試作で見せる</span><i>▸</i><span>御社専用システム</span><i>▸</i><span>業務システム</span><i>▸</i>
-      <span>生成AI活用</span><i>▸</i><span>2週間で試作</span><i>▸</i><span>1ヶ月で本体</span><i>▸</i><span>DRAFT → SHIP</span><i>▸</i><span>NO RISK</span><i>▸</i>
+      <span>PROTOTYPE FIRST</span><i>✦</i><b>動く見本は2週間</b><i>✦</i><span>DRAFT → SHIP</span><i>✦</i><b>契約まで0円</b><i>✦</i><span>NO RISK</span><i>✦</i><b>御社専用システム</b><i>✦</i>
+      <span>PROTOTYPE FIRST</span><i>✦</i><b>動く見本は2週間</b><i>✦</i><span>DRAFT → SHIP</span><i>✦</i><b>契約まで0円</b><i>✦</i><span>NO RISK</span><i>✦</i><b>御社専用システム</b><i>✦</i>
     </div>
   </div>
 
@@ -439,16 +456,108 @@
           <p>失敗したときの損が大きく、結局「いつかやろう」でデジタル化が止まったままになっている。</p>
         </li>
       </ul>
-      <p class="prob__bridge">先に「動く見本」を見てから決めれば、"うまくいくか分からない"という不安そのものが消える。</p>
+      <div class="prob__bridge">
+        <p class="prob__bridge-sm">原因は、ぜんぶ同じ。</p>
+        <p class="prob__bridge-lg"><span class="strike">お金を払うまで、<br class="sp" />何ができるか見えない</span>こと。</p>
+        <p class="prob__bridge-ans">だから、<mark>先に「動く見本」を見せます。</mark></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reason / Compare ===== -->
+  <section class="block reason" id="reason">
+    <div class="shell">
+      <header class="block__head">
+        <span class="idx idx--light">02 — 選ばれる理由</span>
+        <h2 class="block__title block__title--light">リスクは、<br class="sp" />こちらが負います。</h2>
+      </header>
+      <div class="reason__grid">
+        <div class="reason__cell">
+          <span class="reason__no">01</span>
+          <h3>完成品を見て決める</h3>
+          <p>仕様書や見積もりではなく、実際に動くものを先にお見せします。納得してからの契約だから、頼んでから後悔する心配はゼロ。</p>
+        </div>
+        <div class="reason__cell">
+          <span class="reason__no">02</span>
+          <h3>合わなければ0円</h3>
+          <p>ご期待に沿わなければ契約は不要、費用はいただきません。無理な勧誘や追い込み営業もしません。</p>
+        </div>
+        <div class="reason__cell">
+          <span class="reason__no">03</span>
+          <h3>無理のない料金で</h3>
+          <p>高額な固定見積もりは出しません。得られる価値に見合った範囲で。小さな事業者でも始められます。</p>
+        </div>
+      </div>
+
+      <div class="cmp" role="table" aria-label="一般的な開発会社とプロトメイクの比較">
+        <div class="cmp__row cmp__row--head" role="row">
+          <span role="columnheader"></span>
+          <span role="columnheader">一般的な開発会社</span>
+          <span role="columnheader" class="cmp__us">プロトメイク</span>
+        </div>
+        <div class="cmp__row" role="row">
+          <span role="rowheader">最初に出てくるもの</span>
+          <span role="cell">仕様書・見積書</span>
+          <span role="cell" class="cmp__us"><b>さわれる動く見本</b></span>
+        </div>
+        <div class="cmp__row" role="row">
+          <span role="rowheader">形が見えるまで</span>
+          <span role="cell">数ヶ月後</span>
+          <span role="cell" class="cmp__us"><b>2週間</b></span>
+        </div>
+        <div class="cmp__row" role="row">
+          <span role="rowheader">契約のタイミング</span>
+          <span role="cell">作り始める前</span>
+          <span role="cell" class="cmp__us"><b>完成品に納得してから</b></span>
+        </div>
+        <div class="cmp__row" role="row">
+          <span role="rowheader">イメージ違い</span>
+          <span role="cell">完成してから発覚</span>
+          <span role="cell" class="cmp__us"><b>最初の2週間で解消</b></span>
+        </div>
+        <div class="cmp__row" role="row">
+          <span role="rowheader">合わなかったら</span>
+          <span role="cell">費用はすでに発生</span>
+          <span role="cell" class="cmp__us"><b>0円</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Flow (¥0 meter) ===== -->
+  <section class="block flow" id="flow">
+    <div class="shell">
+      <header class="block__head block__head--split">
+        <div>
+          <span class="idx">03 — 進め方</span>
+          <h2 class="block__title">相談から納品まで、<br class="sp" />最短1ヶ月。</h2>
+        </div>
+        <div class="meter" id="meter" aria-hidden="true">
+          <span class="meter__lab">ここまでのお支払い</span>
+          <span class="meter__val">¥<b>0</b></span>
+          <span class="meter__day" id="meterDay">DAY 0</span>
+        </div>
+      </header>
+      <div class="flow__track" id="flowTrack">
+        <div class="flow__rail" aria-hidden="true"><span class="flow__fill" id="flowFill"></span></div>
+        <ol class="flow__list">
+          <li data-day="DAY 0"><span class="flow__node" aria-hidden="true"></span><span class="flow__step">STEP 01 · DAY 0</span><h3>無料オンライン相談</h3><p>オンラインで、今困っていることやご要望をお聞きします。費用は0円。しつこい営業はしません。</p><span class="flow__cost">¥0</span></li>
+          <li data-day="DAY 14"><span class="flow__node" aria-hidden="true"></span><span class="flow__step">STEP 02 · DAY 14</span><h3>動く見本をお見せ</h3><p>2週間で動く見本を作ってお見せします。実際にさわって、イメージとのズレを確認いただきます。</p><span class="flow__cost">¥0</span></li>
+          <li data-day="DAY 30"><span class="flow__node" aria-hidden="true"></span><span class="flow__step">STEP 03 · DAY 30</span><h3>使えるシステムを提供</h3><p>1ヶ月以内に、業務で実際に使えるシステムを、すぐ試せる状態でお渡しします。ここまで費用はかかりません。</p><span class="flow__cost">¥0</span></li>
+          <li data-day="契約判断" class="flow__last"><span class="flow__node" aria-hidden="true"></span><span class="flow__step">STEP 04</span><h3>契約判断</h3><p>気に入っていただけたら契約。お気持ちに応じた無理のない料金で本格運用へ進みます。</p><span class="flow__cost flow__cost--go">ここで初めて</span></li>
+        </ol>
+      </div>
     </div>
   </section>
 
   <!-- ===== Service ===== -->
   <section class="block service" id="service">
-    <div class="shell">
-      <header class="block__head">
-        <span class="idx idx--light">02 — サービス</span>
-        <h2 class="block__title block__title--light">ご提供する<br class="sp" />5つのこと。</h2>
+    <div class="shell service__inner">
+      <header class="block__head service__head">
+        <span class="idx">04 — サービス</span>
+        <h2 class="block__title">ご提供する<br />5つのこと。</h2>
+        <p class="service__sub">業務システムから、AI活用、ホームページまで。「何から頼めばいいか分からない」段階からご相談ください。</p>
+        <a href="#contact" class="btn btn--line btn--sm" data-cta="service">まずは無料で相談する <i class="btn__arrow">→</i></a>
       </header>
       <div class="svc">
         <article class="svc__row">
@@ -495,49 +604,6 @@
     </div>
   </section>
 
-  <!-- ===== Reason ===== -->
-  <section class="block reason">
-    <div class="shell">
-      <header class="block__head">
-        <span class="idx">03 — 選ばれる理由</span>
-        <h2 class="block__title">リスクは、<br class="sp" />こちらが負います。</h2>
-      </header>
-      <div class="reason__grid">
-        <div class="reason__cell">
-          <span class="reason__no">01</span>
-          <h3>完成品を見て決める</h3>
-          <p>仕様書や見積もりではなく、実際に動くものを先にお見せします。納得してからの契約だから、頼んでから後悔する心配はゼロ。</p>
-        </div>
-        <div class="reason__cell">
-          <span class="reason__no">02</span>
-          <h3>合わなければ0円</h3>
-          <p>ご期待に沿わなければ契約は不要、費用はいただきません。無理な勧誘や追い込み営業もしません。</p>
-        </div>
-        <div class="reason__cell">
-          <span class="reason__no">03</span>
-          <h3>無理のない料金で</h3>
-          <p>高額な固定見積もりは出しません。得られる価値に見合った範囲で。小さな事業者でも始められます。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Flow ===== -->
-  <section class="block flow" id="flow">
-    <div class="shell">
-      <header class="block__head">
-        <span class="idx">04 — 進め方</span>
-        <h2 class="block__title">相談から納品まで、<br class="sp" />最短1ヶ月。</h2>
-      </header>
-      <ol class="flow__list">
-        <li><span class="flow__step">STEP 01</span><h3>無料オンライン相談</h3><p>オンラインで、今困っていることやご要望をお聞きします。費用は0円。しつこい営業はしません。</p></li>
-        <li><span class="flow__step">STEP 02</span><h3>動く見本をお見せ</h3><p>2週間で動く見本を作ってお見せします。実際にさわって、イメージとのズレを確認いただきます。</p></li>
-        <li><span class="flow__step">STEP 03</span><h3>使えるシステムを提供</h3><p>1ヶ月以内に、業務で実際に使えるシステムを、すぐ試せる状態でお渡しします。ここまで費用はかかりません。</p></li>
-        <li><span class="flow__step">STEP 04</span><h3>契約判断</h3><p>気に入っていただけたら契約。お気持ちに応じた料金で本格運用へ進みます。</p></li>
-      </ol>
-    </div>
-  </section>
-
   <!-- ===== Works (制作実績) ===== -->
   <section class="block works" id="works">
     <div class="shell">
@@ -546,10 +612,10 @@
         <h2 class="block__title">こういうもの、<br class="sp" />作ってきました。</h2>
       </header>
       <div class="works__grid">
-        <!-- ↓ 各カードの中身は後ほど差し替え。画像は thumb の背景に設定するか <img> を入れてください -->
         <article class="work">
           <div class="work__thumb work__thumb--shot">
-            <img src="works/article-cms.png" alt="記事管理システムの管理画面" loading="lazy" />
+            <span class="work__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="works/article-cms.png" alt="記事管理システムの管理画面" loading="lazy" width="1604" height="660" />
           </div>
           <div class="work__body">
             <span class="work__cat">業務システム</span>
@@ -560,7 +626,8 @@
         </article>
         <article class="work">
           <div class="work__thumb work__thumb--shot">
-            <img src="works/inventory.png" alt="在庫管理システムの管理画面" loading="lazy" />
+            <span class="work__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="works/inventory.png" alt="在庫管理システムの管理画面" loading="lazy" width="1374" height="1370" />
           </div>
           <div class="work__body">
             <span class="work__cat">他システム連携</span>
@@ -571,7 +638,8 @@
         </article>
         <article class="work">
           <div class="work__thumb work__thumb--shot">
-            <img src="works/ht-stocktake.png" alt="ハンディ端末向け棚卸システムのメニュー画面" loading="lazy" />
+            <span class="work__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <img src="works/ht-stocktake.png" alt="ハンディ端末向け棚卸システムのメニュー画面" loading="lazy" width="828" height="1034" />
           </div>
           <div class="work__body">
             <span class="work__cat">バーコード読み取り機アプリ</span>
@@ -585,7 +653,7 @@
     </div>
   </section>
 
-  <!-- ===== Case ===== -->
+  <!-- ===== Case + Voice (dark) ===== -->
   <section class="block case" id="case">
     <div class="shell">
       <header class="block__head">
@@ -594,53 +662,69 @@
       </header>
       <div class="case__grid">
         <article class="case__card">
-          <div class="case__num">‑20<small>時間/月</small></div>
+          <div class="case__num"><span class="case__sign">−</span><span data-count="20">20</span><small>時間/月</small></div>
           <p class="case__label">減った事務作業</p>
           <p class="case__txt">製造業・30名｜毎日の集計・報告を手作業からシステムでの自動化に。事務作業がひと月あたり約20時間分なくなった。</p>
         </article>
         <article class="case__card">
-          <div class="case__num">‑80<small>%</small></div>
+          <div class="case__num"><span class="case__sign">−</span><span data-count="80">80</span><small>%</small></div>
           <p class="case__label">減った手作業</p>
           <p class="case__txt">士業・8名｜エクセルへの手作業の打ち込みを自動化。毎日の入力・確認の手間が大幅に減り、書き写しミスも解消。</p>
         </article>
         <article class="case__card">
-          <div class="case__num">1/10<small>に短縮</small></div>
+          <div class="case__num">1/<span data-count="10">10</span><small>に短縮</small></div>
           <p class="case__label">在庫確認にかかる時間</p>
           <p class="case__txt">小売業・12名｜紙とエクセルでの在庫確認を、ひと目でわかる画面に置き換え。確認にかかる時間が約10分の1に。</p>
         </article>
       </div>
+
+      <div class="voice">
+        <span class="idx idx--light">07 — お客様の声</span>
+        <div class="voice__grid">
+          <blockquote>
+            <p>「市販のソフトをいくつ試してもしっくり来ず、結局エクセルに戻っていました。実際に動くものを見せてもらえたので、安心して任せられました。」</p>
+            <cite>製造業 A社 / 業務改善担当</cite>
+          </blockquote>
+          <blockquote>
+            <p>「“作ってから契約”という形が新鮮でした。リスクなく試せたので、社内の稟議も通しやすかったです。」</p>
+            <cite>サービス業 B社 / 代表取締役</cite>
+          </blockquote>
+          <blockquote>
+            <p>「2週間で動く見本が出てきて驚きました。イメージのズレが早い段階でなくなり、やり直しがありませんでした。」</p>
+            <cite>士業 C社 / 所長</cite>
+          </blockquote>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== Voice ===== -->
-  <section class="block voice">
-    <div class="shell">
-      <header class="block__head">
-        <span class="idx">07 — お客様の声</span>
-      </header>
-      <div class="voice__grid">
-        <blockquote>
-          <p>「市販のソフトをいくつ試してもしっくり来ず、結局エクセルに戻っていました。実際に動くものを見せてもらえたので、安心して任せられました。」</p>
-          <cite>製造業 A社 / 業務改善担当</cite>
-        </blockquote>
-        <blockquote>
-          <p>「“作ってから契約”という形が新鮮でした。リスクなく試せたので、社内の稟議も通しやすかったです。」</p>
-          <cite>サービス業 B社 / 代表取締役</cite>
-        </blockquote>
-        <blockquote>
-          <p>「2週間で動く見本が出てきて驚きました。イメージのズレが早い段階でなくなり、やり直しがありませんでした。」</p>
-          <cite>士業 C社 / 所長</cite>
-        </blockquote>
+  <!-- ===== Mid CTA: 困りごとピッカー ===== -->
+  <section class="picker" aria-labelledby="pickerTitle">
+    <div class="shell picker__inner">
+      <div class="picker__copy">
+        <p class="picker__eyebrow">30秒で相談準備</p>
+        <h2 class="picker__title" id="pickerTitle">御社の「困った」は、<br />どれに近いですか？</h2>
+        <p class="picker__sub">選ぶだけで、相談フォームに入力しておきます。<br class="pc" />まだぼんやりしていても大丈夫です。</p>
+      </div>
+      <div class="picker__chips" id="picker">
+        <button type="button" class="chip" data-topic="エクセル作業の自動化">エクセル作業を<br />なくしたい</button>
+        <button type="button" class="chip" data-topic="在庫・受発注の管理">在庫・受発注を<br />管理したい</button>
+        <button type="button" class="chip" data-topic="顧客・案件の管理">顧客・案件を<br />まとめたい</button>
+        <button type="button" class="chip" data-topic="AIで仕事を効率化">AIで仕事を<br />ラクにしたい</button>
+        <button type="button" class="chip" data-topic="ホームページの制作・リニューアル">ホームページを<br />作り直したい</button>
+        <button type="button" class="chip" data-topic="まだ決まっていない">まだ<br />決まっていない</button>
+        <a href="#contact" class="picker__go btn btn--solid" data-cta="picker">この内容で相談する <i class="btn__arrow">→</i></a>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
   <section class="block faq" id="faq">
-    <div class="shell shell--narrow">
-      <header class="block__head">
+    <div class="shell faq__inner">
+      <header class="block__head faq__head">
         <span class="idx">08 — Q&amp;A</span>
         <h2 class="block__title">よくある質問</h2>
+        <p class="faq__sub">ここにない疑問も、無料相談でお気軽にどうぞ。</p>
       </header>
       <div class="faq__list">
         <details><summary>プロトメイクとは何ですか？</summary><p>プロトメイクは、株式会社GRAZKeが提供する中小企業向けの「動く見本（プロトタイプ）」から始めるシステム開発サービスです。資料や見積もりの前に、実際にさわれる動く見本を2週間でお見せし、業務で使える本番システムを約1ヶ月で提供します。初回相談・見本づくりは無料で、納得いただけた場合のみ契約・お支払いです。</p></details>
@@ -657,72 +741,117 @@
     </div>
   </section>
 
-  <!-- ===== Contact (CTA band) ===== -->
+  <!-- ===== Contact ===== -->
   <section class="block contact" id="contact">
+    <div class="contact__bg" aria-hidden="true">SHIP IT.</div>
     <div class="shell contact__inner">
-      <span class="idx idx--light">09 — お問い合わせ</span>
-      <h2 class="contact__title">まず、動く見本を<br class="sp" />受け取ってください。</h2>
-      <p class="contact__desc">「自社の仕事に何ができるか知りたい」「AIで何ができるか相談したい」だけでも歓迎です。<br />初回相談・動く見本の作成は無料。無理な勧誘は一切ありません。</p>
+      <div class="contact__copy">
+        <span class="idx idx--light">09 — お問い合わせ</span>
+        <h2 class="contact__title">まず、動く見本を<br />受け取ってください。</h2>
+        <p class="contact__desc">「自社の仕事に何ができるか知りたい」「AIで何ができるか相談したい」だけでも歓迎です。初回相談・動く見本の作成は無料。無理な勧誘は一切ありません。</p>
+        <ol class="contact__next">
+          <li><span>01</span>フォーム送信（約1分）</li>
+          <li><span>02</span>担当者からご連絡・日程調整</li>
+          <li><span>03</span>オンラインで無料相談</li>
+          <li><span>04</span>2週間で「動く見本」をお届け</li>
+        </ol>
+        <ul class="contact__merit">
+          <li>初回相談・動く見本は無料</li>
+          <li>納得した場合のみ契約</li>
+          <li>無理な勧誘なし</li>
+        </ul>
+      </div>
 
-      <form class="cform" id="contactForm" novalidate>
-        <div class="cform__grid">
-          <label class="field">
-            <span class="field__label">会社名・屋号</span>
-            <input type="text" name="company" autocomplete="organization" placeholder="例）株式会社サンプル" />
-          </label>
-          <label class="field">
-            <span class="field__label">お名前 <em>必須</em></span>
-            <input type="text" name="name" required autocomplete="name" placeholder="例）山田 太郎" />
-          </label>
-          <label class="field">
-            <span class="field__label">メールアドレス <em>必須</em></span>
-            <input type="email" name="email" required autocomplete="email" placeholder="例）you@example.com" />
-          </label>
-          <label class="field">
-            <span class="field__label">電話番号（任意）</span>
-            <input type="tel" name="tel" autocomplete="tel" placeholder="例）090-1234-5678" />
-          </label>
-          <label class="field">
-            <span class="field__label">従業員数（任意）</span>
-            <select name="size">
-              <option value="">選択してください</option>
-              <option value="1名（個人）">1名（個人）</option>
-              <option value="2〜10名">2〜10名</option>
-              <option value="11〜50名">11〜50名</option>
-              <option value="51〜100名">51〜100名</option>
-              <option value="101名以上">101名以上</option>
-            </select>
-          </label>
-          <label class="field field--full">
-            <span class="field__label">ご相談内容 <em>必須</em></span>
-            <textarea name="message" required rows="5" placeholder="今困っていることや、やってみたいこと（業務システム・AI活用・ホームページなど）をお書きください。"></textarea>
-          </label>
+      <div class="cform-wrap">
+        <form class="cform" id="contactForm" novalidate>
+          <fieldset class="topics">
+            <legend class="field__label">ご相談したいこと（複数選択可）</legend>
+            <div class="topics__list">
+              <label><input type="checkbox" name="topic" value="エクセル作業の自動化" /><span>エクセル作業の自動化</span></label>
+              <label><input type="checkbox" name="topic" value="在庫・受発注の管理" /><span>在庫・受発注の管理</span></label>
+              <label><input type="checkbox" name="topic" value="顧客・案件の管理" /><span>顧客・案件の管理</span></label>
+              <label><input type="checkbox" name="topic" value="AIで仕事を効率化" /><span>AI活用</span></label>
+              <label><input type="checkbox" name="topic" value="ホームページの制作・リニューアル" /><span>ホームページ</span></label>
+              <label><input type="checkbox" name="topic" value="まだ決まっていない" /><span>まだ決まっていない</span></label>
+            </div>
+          </fieldset>
+          <div class="cform__grid">
+            <label class="field">
+              <span class="field__label">お名前 <em>必須</em></span>
+              <input type="text" name="name" required autocomplete="name" placeholder="例）山田 太郎" />
+            </label>
+            <label class="field">
+              <span class="field__label">メールアドレス <em>必須</em></span>
+              <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="例）you@example.com" />
+            </label>
+            <label class="field">
+              <span class="field__label">会社名・屋号</span>
+              <input type="text" name="company" autocomplete="organization" placeholder="例）株式会社サンプル" />
+            </label>
+            <label class="field">
+              <span class="field__label">電話番号（任意）</span>
+              <input type="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="例）090-1234-5678" />
+            </label>
+            <label class="field field--full">
+              <span class="field__label">従業員数（任意）</span>
+              <select name="size">
+                <option value="">選択してください</option>
+                <option value="1名（個人）">1名（個人）</option>
+                <option value="2〜10名">2〜10名</option>
+                <option value="11〜50名">11〜50名</option>
+                <option value="51〜100名">51〜100名</option>
+                <option value="101名以上">101名以上</option>
+              </select>
+            </label>
+            <label class="field field--full">
+              <span class="field__label">ご相談内容 <em>必須</em></span>
+              <textarea name="message" required rows="5" placeholder="今困っていることや、やってみたいことを一言でもOKです。例）受注をエクセルで管理していて、転記ミスが多い"></textarea>
+            </label>
+          </div>
+
+          <!-- 流入元（営業分析用・非表示） -->
+          <input type="hidden" name="source" id="formSource" />
+
+          <!-- honeypot (bot対策・人には見えない) -->
+          <div class="cform__hp" aria-hidden="true">
+            <label>ここは入力しないでください<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <div class="cform__foot">
+            <button type="submit" class="btn btn--solid btn--lg cform__submit"><span>無料で相談する</span><i class="btn__arrow">→</i></button>
+            <p class="cform__note">送信いただいた情報は <a href="privacy.html">プライバシーポリシー</a> に基づき適切に取り扱います。</p>
+            <p class="cform__status" id="formStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="cdone" id="formDone" hidden tabindex="-1">
+          <span class="cdone__check" aria-hidden="true"></span>
+          <p class="cdone__eyebrow">SENT — THANK YOU</p>
+          <h3 class="cdone__title">送信しました。<br />ありがとうございます。</h3>
+          <p class="cdone__txt">担当者より、ご入力いただいたメールアドレス宛にご連絡いたします。見本づくりに向けて、今のお困りごとを気軽にお聞かせください。</p>
+          <ol class="cdone__steps">
+            <li class="is-done">フォーム送信</li>
+            <li>担当者からご連絡</li>
+            <li>オンライン無料相談</li>
+            <li>2週間で動く見本</li>
+          </ol>
         </div>
-
-        <!-- honeypot (bot対策・人には見えない) -->
-        <div class="cform__hp" aria-hidden="true">
-          <label>ここは入力しないでください<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
-        </div>
-
-        <div class="cform__foot">
-          <button type="submit" class="btn btn--solid cform__submit">この内容で相談する →</button>
-          <p class="cform__status" id="formStatus" role="status" aria-live="polite"></p>
-        </div>
-      </form>
-
-      <ul class="contact__merit">
-        <li>初回相談・動く見本は無料</li>
-        <li>納得した場合のみ契約</li>
-        <li>無理な勧誘なし</li>
-      </ul>
+      </div>
     </div>
   </section>
   </main>
 
   <!-- ===== Footer ===== -->
   <footer class="footer">
+    <div class="shell">
+      <a href="#contact" class="footer__big" data-cta="footer">
+        <span class="footer__big-sm">無料で、動く見本から。</span>
+        <span class="footer__big-lg">Let's make it real. <i>→</i></span>
+      </a>
+    </div>
     <div class="shell footer__inner">
       <div class="footer__brand">
+        <p class="footer__logo">プロトメイク <span>-protmake-</span></p>
         <p class="footer__tag">御社の業務に、<br />ぴったり合うシステムを。</p>
       </div>
       <dl class="footer__info">
@@ -739,10 +868,12 @@
     <p class="footer__copy">© 2026 株式会社GRAZKe</p>
   </footer>
 
-  <a href="#contact" class="float-cta">無料相談 →</a>
+  <!-- mobile sticky CTA -->
+  <div class="float-cta" id="floatCta">
+    <p class="float-cta__txt"><b>契約まで0円</b>2週間で動く見本</p>
+    <a href="#contact" class="float-cta__btn" data-cta="sticky">無料で相談 →</a>
+  </div>
 
-  <!-- three.js (progressive enhancement) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
