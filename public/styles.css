@@ -508,6 +508,34 @@ mark {
   border: 1.5px solid var(--coral); color: var(--coral-deep); border-radius: 999px; padding: 3px 14px; background: #fff;
 }
 .flow__cost--go { font-family: var(--jp); background: var(--ink); border-color: var(--ink); color: var(--mark); }
+
+/* flow step illustrations */
+.flow__fig { margin: 14px 0 4px; }
+.flow__fig svg { display: block; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 1px 0 var(--line-dk), 0 10px 24px -18px rgba(15,46,54,0.35); transition: transform 0.5s var(--ease); }
+.flow__list li.is-active .flow__fig svg { transform: translateY(-3px); }
+.flow__fig figcaption { font-size: 0.78rem; font-weight: 700; color: var(--ink-soft); margin-top: 8px; display: flex; align-items: center; gap: 6px; }
+.flow__fig figcaption::before { content: ""; width: 14px; height: 2px; background: var(--coral); border-radius: 2px; }
+.flow__fig--go figcaption::before { background: var(--ink); }
+.f-paper { fill: #fff; } .f-blue { fill: #e6f4f2; } .f-inkbg { fill: var(--ink); }
+.f-frame { fill: #fff; stroke: var(--line-dk); stroke-width: 1.5; }
+.f-ink { fill: var(--ink); } .f-teal { fill: var(--coral); } .f-mark { fill: var(--mark); }
+.f-soft { fill: var(--cream-2); } .f-dot { fill: rgba(255,255,255,0.55); }
+.f-dim { fill: rgba(255,255,255,0.3); } .f-dim2 { fill: var(--line-dk); }
+.f-sheet { fill: #fff; }
+.f-grid path { stroke: rgba(17,179,166,0.14); stroke-width: 1; fill: none; }
+.f-dash { fill: rgba(255,255,255,0.6); stroke: var(--coral-deep); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.f-tealbtn { fill: var(--coral); }
+.f-hand { fill: #fff; stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.f-ring { fill: none; stroke: var(--mark); stroke-width: 3; }
+.f-stroke { stroke: var(--ink); stroke-width: 2; }
+.f-check { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.f-sign { fill: none; stroke: var(--coral-deep); stroke-width: 2.5; stroke-linecap: round; }
+.f-arrow { fill: none; stroke: var(--mark); stroke-width: 2.5; stroke-dasharray: 5 4; }
+.f-arrowhead { fill: var(--mark); }
+.f-txt { font-family: var(--jp); font-size: 11px; font-weight: 700; fill: var(--ink); }
+.f-txt--w { fill: #fff; }
+.f-big { font-family: var(--jp); font-size: 17px; font-weight: 800; fill: var(--ink); }
+@media (max-width: 860px) { .flow__fig { max-width: 360px; } }
 @media (max-width: 860px) {
   .block__head--split { align-items: flex-start; }
   .flow__rail { left: 11px; right: auto; top: 0; bottom: 0; width: 3px; height: auto; }
